@@ -4,18 +4,19 @@ import socket
 host = 'localhost'
 port = 60000
 
-try:
-        if __name__ == "__main__":
-                #connect to socket
-                backlog = 5
-                size = 1024
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.bind((host,port))
-                s.listen(backlog)
-                print("listening for connections on port " , port)
 
-                #initiate remote
-                remote = LEDremote()
+if __name__ == "__main__":
+        #connect to socket
+        backlog = 5
+        size = 1024
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind((host,port))
+        s.listen(backlog)
+        print("listening for connections on port " , port)
+
+        #initiate remote
+        remote = LEDremote()
+        try:
                 client, addr = s.accept()
                 while 1:
                         data = client.recv(size) 
@@ -34,6 +35,6 @@ try:
                                 else:
                                         print('Invalid command received and ignored.\n')
                 client.close()
-except KeyboardInterrupt:
-        LEDremote.cleanup()
-        exit()
+        except KeyboardInterrupt:
+                remote.cleanup()
+                exit()
