@@ -15,16 +15,16 @@ if __name__ == "__main__":
 
         #initiate remote
         remote = LEDremote()
-        while True:
-                client, address = s.accept() 
+        client, addr = s.accept()
+        while 1:
                 data = client.recv(size) 
                 if data:
                         data = data.split(',')
                         print(data)
-                        if (data[0] = "toggle"):
+                        if (data[0] == "toggle"):
                                 remote.toggle(data[1])
                                 print('Toggled.\n')
-                        elif (data[0] = "level"):
+                        elif (data[0] == "level"):
                                 remote.levelSet(data[1],data[2])
                                 print('Set level.\n')
                         else:

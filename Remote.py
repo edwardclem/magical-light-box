@@ -2,6 +2,7 @@ import wiringpi2
 
 class LEDremote: 
     def toggle(self, color):
+        print('Input: ',color)
         if (color == "red"): 
             if (self.redIsOn == True):
                 wiringpi2.softPwmWrite(self.redPin,0) 
@@ -60,9 +61,11 @@ class LEDremote:
         self.blueIsOn = False 
         self.greenIsOn = False
 
-        self.redLevel = 0
-        self.blueLevel = 0
-        self.greenLevel = 0
+        self.redLevel = 100
+        self.blueLevel = 100
+        self.greenLevel = 100
+
+        print('Remote initiated.')
         
 
 if __name__=="__main__":
