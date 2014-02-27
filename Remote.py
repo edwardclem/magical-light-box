@@ -65,7 +65,6 @@ class LEDremote:
         self.greenLevel = 0
         
 
-if __name__=="__main__":     
+if __name__=="__main__":
     def main(self): 
-        
-    remote = LEDremote()
+        remote = LEDremote()
