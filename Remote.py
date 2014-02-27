@@ -33,7 +33,7 @@ class LEDremote:
         elif(color == "green" and self.greenIsOn==True):
             wiringpi2.softPwmWrite(self.greenPin, int(level)) 
             
-    def cleanupHandler(self, color = None):
+    def cleanup(self, color = None):
         wiringpi2.softPwmWrite(self.redPin,0) 
         wiringpi2.pinMode(self.redPin,0) 
         wiringpi2.softPwmWrite(self.greenPin,0) 
