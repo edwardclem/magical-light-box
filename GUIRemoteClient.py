@@ -5,19 +5,19 @@ import socket
 
 class GUIremoteclient: 
     def buttonToggled(self,widget,data):
-       s.send('toggle,' + data)
+       self.s.send('toggle,' + data)
                 
     def sliderMoved(self,widget,data): 
         if(data == "red"): 
-            s.send('level,red,' + str(int(self.redSlider.get_value())))
+            self.s.send('level,red,' + str(int(self.redSlider.get_value())))
         elif(data == "blue"): 
-            s.send('level,blue,' + str(int(self.blueSlider.get_value())))
+            self.s.send('level,blue,' + str(int(self.blueSlider.get_value())))
         elif(data == "green"):
-            s.send('level,green,' + str(int(self.greenSlider.get_value()))) 
+            self.s.send('level,green,' + str(int(self.greenSlider.get_value()))) 
             
     def cleanupHandler(self, widget, data = None): 
         print "goodbye" 
-        s.send('cleanup')
+        self.s.send('cleanup')
         gtk.main_quit() 
         return False
         
@@ -28,8 +28,8 @@ class GUIremoteclient:
         host = 'localhost' 
         port = 60000
         size = 1024 
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-        s.connect((host,port)) 
+        self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+        self.s.connect((host,port)) 
         
         self.redPin = 23 
         self.bluePin = 24 
