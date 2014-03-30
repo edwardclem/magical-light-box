@@ -27,13 +27,13 @@ class LEDremote:
                 
     def levelSet(self,color,level): 
         if(color == "red" and self.redIsOn == True): 
-            self.redLevel = level
+            self.redLevel = int(level)
             wiringpi2.softPwmWrite(self.redPin, int(level)) 
         elif(color == "blue" and self.blueIsOn == True): 
-            self.blueLevel = level
+            self.blueLevel = int(level)
             wiringpi2.softPwmWrite(self.bluePin, int(level)) 
         elif(color == "green" and self.greenIsOn==True):
-            self.blueLevel = level
+            self.blueLevel = int(level)
             wiringpi2.softPwmWrite(self.greenPin, int(level)) 
             
     def cleanup(self, color = None):
