@@ -17,7 +17,7 @@ class GUIremoteclient:
             
     def cleanupHandler(self, widget, data = None): 
         print "goodbye" 
-        self.s.send('cleanup')
+        self.s.send('exit')
         gtk.main_quit() 
         return False
         
