@@ -37,4 +37,5 @@ if __name__ == "__main__":
                 client.close()
         except KeyboardInterrupt:
                 remote.cleanup()
+                s.close()
                 exit()
