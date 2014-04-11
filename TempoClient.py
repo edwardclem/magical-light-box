@@ -18,15 +18,15 @@ class GUIremoteclient:
             self.s.send('toggle,' + data)
                 
     def sliderMoved(self,widget,data): 
-        if(data == "red"): 
+        if (data == "red"): 
             #self.s.send('level,red,' + str(int(self.redSlider.get_value())))
-            self.lightsConfiguration[0] = 'level,red,' + str(int(self.redSlider.get_value())
-        elif(data == "blue"): 
-            self.lightsConfiguration[1] = 'level,blue,' + str(int(self.redSlider.get_value())
-        elif(data == "green"):
-            self.lightsConfiguration[2] = 'level,blue,' + str(int(self.redSlider.get_value())
+            self.lightsConfiguration[0] = 'level,red,' + str(int(self.redSlider.get_value()))
+        elif (data == "blue"): 
+            self.lightsConfiguration[1] = 'level,blue,' + str(int(self.redSlider.get_value()))
+        elif (data == "green"):
+            self.lightsConfiguration[2] = 'level,blue,' + str(int(self.redSlider.get_value()))
 
-        if (not pulsing)
+        if (not pulsing):
             for data in self.lightsConfiguration:
                 self.s.send(data)
 
@@ -96,7 +96,7 @@ class GUIremoteclient:
             button.show() 
             
         for slider in sliderList: 
-            if (slider = self.tempoSlider):
+            if (slider == self.tempoSlider):
                 slider.set_range(60,250)
             else:
                 slider.set_range(0,100)
