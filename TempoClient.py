@@ -38,10 +38,6 @@ class GUIremoteclient:
         return False
 
     def pulse():
-        #if lights are all off, send the configuation to the server
-        #if they're on, set level to zero
-        #there's a more efficient way to do this using toggle, but this is easier
-
         self.s.send('toggle,red')
         self.s.send('toggle,blue')
         self.s.send('toggle,green')

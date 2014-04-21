@@ -10,7 +10,7 @@ if __name__ == "__main__":
         backlog = 5
         size = 1024
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind((host,port))
+        s.bind(('',port))
         s.listen(backlog)
         print("listening for connections on port " , port)
 
